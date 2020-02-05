@@ -42,6 +42,7 @@ nnoremap <F3> 3gt
 inoremap <F3> <ESC>3gt
 nnoremap <F4> 4gt
 inoremap <F4> <ESC>4gt
+nnoremap <C-u> <Nop>
 
 
 func MoveLineUp()
