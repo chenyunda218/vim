@@ -51,6 +51,7 @@ if line == 1
     return
 endif
  
+
 execute "normal! k"
 let l = getline(line)
 call setline(line,getline(line-1))
