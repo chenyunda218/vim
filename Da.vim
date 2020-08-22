@@ -1,3 +1,5 @@
+set tabstop=4 shiftwidth=4 expandtab
+
 let mapleader = "\\"
 " Mapping key of moving cursor at normal and visual mode
 nnoremap i k
