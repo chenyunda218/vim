@@ -1,72 +1,32 @@
-set tabstop=4 shiftwidth=4 expandtab
-
-let mapleader = "\\"
-" Mapping key of moving cursor at normal and visual mode
-nnoremap i k
-vnoremap i k
-nnoremap k j
-vnoremap k j
-nnoremap j h
-vnoremap j h
-nnoremap h i
-vnoremap h i
-
-" vim setting
-syntax on
-set t_Co=256
-set cursorline
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'file:///home/gmarik/path/to/plugin'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'preservim/nerdtree'
+Plugin 'elixir-editors/vim-elixir'
+call vundle#end()            " required
+filetype plugin indent on    " required
 set number
-set vb
-set backspace=2
-highlight LineNr ctermfg=grey
-
-" Mapping for function
-inoremap <C-u> <ESC>ui
-nnoremap Mi :call MoveLineUp()<CR>
-nnoremap Mk :call MoveLineDown()<CR>
-inoremap <C-d> <ESC>A
-inoremap <C-a> <ESC>0i
-nnoremap <C-k> j<C-e>
-nnoremap <C-i> k<C-y>
-inoremap <C-i> <Nop>
-inoremap <C-i> <ESC>ka
-map! <F1> <Nop>
-map! <C-1> <Nop>
-nnoremap <leader>1 1gt
-inoremap <leader>1 <ESC>1gt
-nnoremap <leader>2 2gt
-inoremap <leader>2 <ESC>2gt
-nnoremap <leader>3 3gt
-inoremap <leader>3 <ESC>3gt
-nnoremap <leader>4 4gt
-inoremap <leader>4 <ESC>4gt
-nnoremap <leader>5 5gt
-inoremap <leader>5 <ESC>5gt
-nnoremap <leader>6 6gt
-inoremap <leader>6 <ESC>6gt
-nnoremap <C-u> <Nop>
-
-
-func MoveLineUp()
-let line = getpos(".")[1]
-if line == 1
-    return
-endif
- 
-
-execute "normal! k"
-let l = getline(line)
-call setline(line,getline(line-1))
-call setline(line-1,l)
-endf
-
-func MoveLineDown()
-let line = getpos(".")[1]
-if line == line("$")
-    return
-endif
-execute "normal! j"
-let l = getline(line)
-call setline(line,getline(line+1))
-call setline(line+1,l)
-endf
+" nertree setting
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" mapping
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap g1 1gt
+nnoremap g2 2gt
+nnoremap g3 3gt
+nnoremap g4 4gt
+nnoremap g5 5gt
+nnoremap g6 6gt
+nnoremap g7 7gt
+nnoremap g8 7gt
+" airline setting
+let g:airline#extensions#tabline#enabled = 1
