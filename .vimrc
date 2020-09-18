@@ -1,3 +1,9 @@
+syntax enable
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -45,6 +51,7 @@ nnoremap <F1> <nop>
 inoremap <F1> <nop>
 vnoremap <F1> <nop>
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <space> Gzz
 " tab
 nnoremap 1g 1gt
 nnoremap 2g 2gt
@@ -56,9 +63,11 @@ nnoremap 7g 7gt
 nnoremap 8g 7gt
 nnoremap , <nop>
 nnoremap . <nop>
-nnoremap , :tabpre<CR>
-nnoremap . :tabnext<CR>
+nnoremap , gT<CR>
+nnoremap . gt<CR>
+nnoremap <TAB> mpv>`pllll
+vnoremap <S-TAB> <
+vnoremap <TAB> >
+nnoremap <S-TAB> v<
 " airline setting
 let g:airline#extensions#tabline#enabled = 1
-
-
