@@ -1,3 +1,7 @@
+" quick testing
+nnoremap test :make<CR>:make && make run<CR>
+nnoremap vimrc :tabe<CR>:e ~/.vimrc<CR>
+
 syntax enable
 set smartindent
 set tabstop=4
